@@ -70,9 +70,10 @@ public class AddInmuebleActivity extends AppCompatActivity {
         //if (!binding.ratingBar.callOnClick()) {
         //    return null;}
 
+
         Inmueble inmueble = new Inmueble(
                 binding.txtDireccionInmueble.getText().toString(),
-                binding.txtNumeroInmueble.length(),
+                binding.txtNumeroInmueble.getText().toString(),
                 binding.txtCiudadInmueble.getText().toString(),
                 binding.txtProvinciaInmueble.getText().toString(),
                 binding.txtCPInmueble.getText().toString(),

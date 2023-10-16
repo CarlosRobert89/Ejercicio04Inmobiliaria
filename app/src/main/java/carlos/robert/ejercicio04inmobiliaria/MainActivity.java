@@ -9,7 +9,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -42,13 +45,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //lanzar la actividad AddInmueble
                 launcherInmueble.launch(new Intent(MainActivity.this, AddInmuebleActivity.class));
-
-
             }
         });
     }
 
-    private void inicializarLauncher() {
+    private void inicializarLauncher(){
         launcherInmueble = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             if(result.getData() != null && result.getData().getExtras() != null){
                                 Inmueble inmueble = (Inmueble) result.getData().getExtras().getSerializable("INMUEBLE");
                                 listaInmuebles.add(inmueble);
+                                mostrarInmuebles();
                             }else{
                                 Toast.makeText(MainActivity.this, "No llegaron los datos...", Toast.LENGTH_SHORT).show();
                             }
@@ -68,5 +70,27 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private void mostrarInmuebles() {
+        //eliminar lo que haya en el Linear Layout
+        binding.contentMain.contenedorMain.removeAllViews();
+
+        for (Inmueble i:listaInmuebles) {
+            LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+
+            View inmuebleView = layoutInflater.inflate(R.layout.inmueble_fila_view, null);
+            TextView txtDireccion = inmuebleView.findViewById(R.id.direccionView);
+            TextView txtNumero = inmuebleView.findViewById(R.id.numeroView);
+            TextView txtCiudad = inmuebleView.findViewById(R.id.ciudadView);
+            RatingBar Valoracion = inmuebleView.findViewById(R.id.ratingBarView);
+
+            txtDireccion.setText(i.getDireccion());
+            txtNumero.setText(i.getNumero());
+            txtCiudad.setText(i.getCiudad());
+            Valoracion.setRating((int) i.getValoracion());
+
+            binding.contentMain.contenedorMain.addView(inmuebleView);
+        }
     }
 }

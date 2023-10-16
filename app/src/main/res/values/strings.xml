@@ -6,5 +6,6 @@
     <string name="ciudad">Ciudad</string>
     <string name="provincia">Provincia</string>
     <string name="cp">Código Postal</string>
-    <dimen name="valoracion">0</dimen>
+    <integer name="valoracion">5</integer>
+    <dimen name="valoracion">5</dimen>
 </resources>

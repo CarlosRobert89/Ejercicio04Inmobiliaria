@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 public class Inmueble implements Serializable {
     private String direccion;
-    private int numero;
-
+    private String numero;
     private String ciudad;
     private String provincia;
     private String cp;
@@ -14,7 +13,7 @@ public class Inmueble implements Serializable {
     public Inmueble() {
     }
 
-    public Inmueble(String direccion, int numero, String ciudad, String provincia, String cp, float valoracion) {
+    public Inmueble(String direccion, String numero, String ciudad, String provincia, String cp, float valoracion) {
         this.direccion = direccion;
         this.numero = numero;
         this.ciudad = ciudad;
@@ -31,11 +30,11 @@ public class Inmueble implements Serializable {
         this.direccion = direccion;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

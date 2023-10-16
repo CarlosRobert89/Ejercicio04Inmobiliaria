@@ -52,8 +52,7 @@
         android:layout_width="241dp"
         android:layout_height="46dp"
         android:layout_margin="10dp"
-        android:numStars="5"
-        android:rating="@dimen/valoracion"
+        android:numStars="@integer/valoracion"
         android:textAlignment="viewStart" />
 
     <LinearLayout

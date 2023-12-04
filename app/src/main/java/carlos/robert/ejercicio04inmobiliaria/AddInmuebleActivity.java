@@ -21,14 +21,14 @@ public class AddInmuebleActivity extends AppCompatActivity {
         binding = ActivityAddInmuebleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btnCancelarInmueble.setOnClickListener(new View.OnClickListener() {
+        binding.btnCancelarInmuebleAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setResult(RESULT_CANCELED);
                 finish();
             }
         });
-        binding.btnCrearInmueble.setOnClickListener(new View.OnClickListener() {
+        binding.btnCrearInmuebleAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Añadir lo que escribe el usuario
@@ -52,19 +52,19 @@ public class AddInmuebleActivity extends AppCompatActivity {
     }
 
     private Inmueble crearInmueble() {
-        if (binding.txtDireccionInmueble.getText().toString().isEmpty()) {
+        if (binding.txtDireccionInmuebleAdd.getText().toString().isEmpty()) {
             return null;
         }
-        if (binding.txtCiudadInmueble.getText().toString().isEmpty()) {
+        if (binding.txtCiudadInmuebleAdd.getText().toString().isEmpty()) {
             return null;
         }
-        if (binding.txtNumeroInmueble.getText().toString().isEmpty()) {
+        if (binding.txtNumeroInmuebleAdd.getText().toString().isEmpty()) {
             return null;
         }
-        if (binding.txtProvinciaInmueble.getText().toString().isEmpty()) {
+        if (binding.txtProvinciaInmuebleAdd.getText().toString().isEmpty()) {
             return null;
         }
-        if (binding.txtCPInmueble.getText().toString().isEmpty()) {
+        if (binding.txtCPInmuebleAdd.getText().toString().isEmpty()) {
             return null;
         }
         //if (!binding.ratingBar.callOnClick()) {
@@ -72,12 +72,12 @@ public class AddInmuebleActivity extends AppCompatActivity {
 
 
         Inmueble inmueble = new Inmueble(
-                binding.txtDireccionInmueble.getText().toString(),
-                binding.txtNumeroInmueble.getText().toString(),
-                binding.txtCiudadInmueble.getText().toString(),
-                binding.txtProvinciaInmueble.getText().toString(),
-                binding.txtCPInmueble.getText().toString(),
-                binding.ratingBar.getRating()
+                binding.txtDireccionInmuebleAdd.getText().toString(),
+                binding.txtNumeroInmuebleAdd.getText().toString(),
+                binding.txtCiudadInmuebleAdd.getText().toString(),
+                binding.txtProvinciaInmuebleAdd.getText().toString(),
+                binding.txtCPInmuebleAdd.getText().toString(),
+                binding.ratingBarAdd.getRating()
         );
         return inmueble;
     }

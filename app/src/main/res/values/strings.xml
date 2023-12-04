@@ -8,4 +8,6 @@
     <string name="cp">Código Postal</string>
     <integer name="valoracion">5</integer>
     <dimen name="valoracion">5</dimen>
+    <string name="eliminar">ELIMINAR INMUEBLE</string>
+    <string name="editar">EDITAR INMUEBLE</string>
 </resources>
